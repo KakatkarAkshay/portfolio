@@ -5,6 +5,20 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        tls: false,
+        net: false,
+        fs: false,
+        child_process: false,
+        readline: false,
+      };
+    }
+    return config;
+  },
+};
 
 export default config;
