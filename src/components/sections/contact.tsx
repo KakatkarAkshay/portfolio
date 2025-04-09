@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { api } from "@/trpc/react";
 import type { AnyFieldApi } from "@tanstack/react-form";
 import { useForm } from "@tanstack/react-form";
 import { motion } from "framer-motion";
@@ -27,6 +28,16 @@ export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
 
+  const sendEmail = api.contact.sendEmail.useMutation({
+    onSuccess: () => {
+      setIsSubmitted(true);
+      form.reset();
+    },
+    onError: (error) => {
+      setFormError(error.message);
+    },
+  });
+
   const form = useForm({
     defaultValues: {
       name: "",
@@ -35,26 +46,9 @@ export function ContactSection() {
     },
     onSubmit: async ({ value }) => {
       try {
-        const response = await fetch("/api/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(value),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || "Failed to send message");
-        }
-
-        setIsSubmitted(true);
-        form.reset();
+        await sendEmail.mutateAsync(value);
       } catch (error) {
-        setFormError(
-          error instanceof Error ? error.message : "Failed to send message"
-        );
+        // Error handling is done in the mutation callbacks
       }
     },
   });
@@ -308,10 +302,12 @@ export function ContactSection() {
                   children={([canSubmit, isSubmitting]) => (
                     <Button
                       type="submit"
-                      disabled={!canSubmit || isSubmitting}
+                      disabled={
+                        !canSubmit || isSubmitting || sendEmail.isPending
+                      }
                       className="w-full"
                     >
-                      {isSubmitting ? (
+                      {isSubmitting || sendEmail.isPending ? (
                         <>
                           <svg
                             className="mr-2 h-4 w-4 animate-spin"
