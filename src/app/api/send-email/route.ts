@@ -1,9 +1,9 @@
 import { env } from "@/env";
-import { sanitizeHtml } from "@/lib/sanitize";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import sanitizeHtml from "sanitize-html";
 import { z } from "zod";
 
 // Initialize rate limiter
