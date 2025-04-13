@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TRPCReactProvider } from "@/trpc/react";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
             </div>
           </ThemeProvider>
         </TRPCReactProvider>
+        <Analytics />
       </body>
     </html>
   );
