@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
           </ThemeProvider>
         </TRPCReactProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
