@@ -42,7 +42,7 @@ export function Footer() {
               </motion.div>
             </Link>
             <Link
-              href="https://linkedin.com/in/akshay-kakatkar"
+              href="https://www.linkedin.com/in/akshay-kakatkar-4ba900270"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
