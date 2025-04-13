@@ -15,6 +15,72 @@ type Project = {
 export function ProjectsSection() {
   const projects: Project[] = [
     {
+      title: "MathonGo LMS",
+      description:
+        "A comprehensive Learning Management Platform supporting 15,000 active users and handling 1 million daily requests. Built with NodeJS, ExpressJS, MongoDB, and Redis for robust and scalable solutions.",
+      githubUrl: "https://app.mathongo.com",
+      technologies: [
+        "NodeJS",
+        "ExpressJS",
+        "MongoDB",
+        "Redis",
+        "RESTful APIs",
+        "OAuth",
+      ],
+      features: [
+        "Scalable backend architecture handling 1M+ daily requests",
+        "Redis caching for enhanced performance",
+        "Secure OAuth authentication",
+        "RESTful API design for efficient communication",
+        "AWS Lambda integration for complex calculations",
+        "High availability and performance optimization",
+      ],
+    },
+    {
+      title: "Quizrr Platform",
+      description:
+        "An online test series platform serving 100,000 active users and handling 10 million daily requests. Achieved 150% improvement in response performance through optimization.",
+      githubUrl: "https://app.quizrr.in",
+      technologies: [
+        "NodeJS",
+        "ExpressJS",
+        "MongoDB",
+        "Redis",
+        "RESTful APIs",
+        "AWS Lambda",
+      ],
+      features: [
+        "High-performance backend optimized for 10M+ daily requests",
+        "150% improvement in response time",
+        "Scalable architecture for 100K+ active users",
+        "Efficient data retrieval and caching",
+        "AWS Lambda integration for complex operations",
+        "Cross-functional team collaboration",
+      ],
+    },
+    {
+      title: "MARKS App",
+      description:
+        "A JEE/NEET Preparation App with 1.6 million active users and 50 million daily requests. Achieved 50% improvement in response time through backend optimization.",
+      githubUrl: "https://web.getmarks.app",
+      technologies: [
+        "NodeJS",
+        "ExpressJS",
+        "MongoDB",
+        "Redis",
+        "RESTful APIs",
+        "AWS Lambda",
+      ],
+      features: [
+        "Massive scale handling 50M+ daily requests",
+        "50% improvement in response time",
+        "Support for 1.6M+ active users",
+        "Optimized backend architecture",
+        "Efficient data management and retrieval",
+        "High availability and reliability",
+      ],
+    },
+    {
       title: "CloudLab (Infrastructure as Code)",
       description:
         "A 4-node Kubernetes cluster deployment on Oracle Cloud Infrastructure (OCI) using Terraform for Infrastructure as Code (IaC).",
