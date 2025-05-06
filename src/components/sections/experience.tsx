@@ -46,14 +46,14 @@ export function ExperienceSection() {
   };
 
   return (
-    <section id="experience" className="py-12 md:py-24 w-full">
-      <div className="container px-4 md:px-6 max-w-[1200px] mx-auto">
+    <section id="experience" className="w-full py-12 md:py-24">
+      <div className="container mx-auto max-w-[1200px] px-4 md:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+          className="mb-8 text-center font-bold text-3xl tracking-tighter sm:text-4xl md:text-5xl"
         >
           Work Experience
         </motion.h2>
@@ -69,7 +69,7 @@ export function ExperienceSection() {
         </motion.p>
 
         <div className="mx-auto max-w-4xl">
-          <div className="relative border-l-2 border-primary pl-8 pt-2">
+          <div className="relative border-primary border-l-2 pt-2 pl-8">
             {experiences.map((experience, index) => (
               <motion.div
                 key={experience.company}
@@ -78,15 +78,15 @@ export function ExperienceSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="mb-16 relative"
+                className="relative mb-16"
               >
-                <div className="absolute -left-[45px] top-0 h-6 w-6 rounded-full border-4 border-background bg-primary"></div>
+                <div className="-left-[45px] absolute top-0 h-6 w-6 rounded-full border-4 border-background bg-primary" />
                 <div className="rounded-lg border bg-card p-6 shadow-sm">
                   <div className="mb-4 flex items-start justify-between">
                     <div>
-                      <h3 className="text-xl font-bold">{experience.title}</h3>
+                      <h3 className="font-bold text-xl">{experience.title}</h3>
                       <div className="flex items-center gap-2">
-                        <p className="text-lg font-medium text-primary">
+                        <p className="font-medium text-lg text-primary">
                           {experience.company}
                         </p>
                         <Link
@@ -98,16 +98,16 @@ export function ExperienceSection() {
                           <FiExternalLink className="h-4 w-4" />
                         </Link>
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {experience.location} | {experience.period}
                       </p>
                     </div>
                   </div>
 
-                  <ul className="ml-5 space-y-2 list-disc text-muted-foreground">
+                  <ul className="ml-5 list-disc space-y-2 text-muted-foreground">
                     {experience.description.map((point, i) => (
                       <motion.li
-                        key={i}
+                        key={`${point.slice(0, 20)}-${i}`}
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
@@ -133,7 +133,7 @@ export function ExperienceSection() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + i * 0.05, duration: 0.2 }}
                         viewport={{ once: true }}
-                        className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                        className="inline-flex rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-xs"
                       >
                         {tech}
                       </motion.span>

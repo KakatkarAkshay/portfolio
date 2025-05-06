@@ -8,8 +8,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-border/40 bg-background py-6">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+    <footer className="w-full border-border/40 border-t bg-background py-6">
+      <div className="mx-auto max-w-[1200px] px-4 md:px-6">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ export function Footer() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center gap-4 md:flex-row md:items-start"
           >
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               © {currentYear} Akshay Kakatkar. All rights reserved.
             </p>
           </motion.div>

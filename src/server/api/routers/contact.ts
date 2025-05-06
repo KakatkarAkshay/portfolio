@@ -12,7 +12,7 @@ const contactFormSchema = z.object({
     .max(100, "Name must be less than 100 characters")
     .regex(
       /^[a-zA-Z\s-]+$/,
-      "Name can only contain letters, spaces, and hyphens"
+      "Name can only contain letters, spaces, and hyphens",
     ),
   email: z
     .string()

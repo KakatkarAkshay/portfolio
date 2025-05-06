@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface CardProps {
   title?: string;
@@ -15,7 +15,7 @@ interface CardProps {
 export function Card({ title, className = "", children }: CardProps) {
   return (
     <div className={`rounded-lg border bg-card p-6 shadow-sm ${className}`}>
-      {title && <h3 className="text-xl font-bold mb-4">{title}</h3>}
+      {title && <h3 className="mb-4 font-bold text-xl">{title}</h3>}
       {children}
     </div>
   );
